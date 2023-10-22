@@ -1,15 +1,11 @@
-import java.util.Scanner;
-
-public class HouseholdGoodsStore {
+class HouseholdGoodsStore {
     private static HouseholdGoodsStore instance;
     private String[] products;
     private int count;
 
-
     private HouseholdGoodsStore() {
-        // Приватный конструктор для инициализации массива товаров
         products = new String[10];
-        count = 0; // Изначально нет товаров
+        count = 0;
     }
 
     public static HouseholdGoodsStore getInstance() {
@@ -31,11 +27,10 @@ public class HouseholdGoodsStore {
     public void removeProduct(String product) {
         for (int i = 0; i < count; i++) {
             if (products[i].equals(product)) {
-                // Если найден товар, удаляем его и сдвигаем остальные элементы
                 for (int j = i; j < count - 1; j++) {
                     products[j] = products[j + 1];
                 }
-                products[count - 1] = null; // Удаляем последний элемент
+                products[count - 1] = null;
                 count--;
                 return;
             }
